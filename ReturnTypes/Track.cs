@@ -18,9 +18,6 @@ namespace MusixMatch_API.ReturnTypes
         [JsonProperty("track_spotify_id")]
         public string TrackSpotifyId { get; set; }
 
-        [JsonProperty("track_soundcloud_id")]
-        public int TrackSoundcloudId { get; set; }
-
         [JsonProperty("track_name")]
         public string TrackName { get; set; }
 
@@ -95,5 +92,7 @@ namespace MusixMatch_API.ReturnTypes
 
         [JsonProperty("secondary_genres")]
         public SecondaryGenres SecondaryGenres { get; set; }
+
+
     }
 }

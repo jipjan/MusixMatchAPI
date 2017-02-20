@@ -22,7 +22,7 @@ namespace MusixMatch_API
     /// <summary>
     /// This class handles all requests you can make to the MusixMatch API.
     /// </summary>
-    public class MusixMatchApi
+    public class MusixMatchApi : IDisposable
     {
         private const string RootUrl = @"http://api.musixmatch.com/ws/1.1/";
         private readonly string _apiKey;
@@ -39,17 +39,27 @@ namespace MusixMatch_API
 
         private async void RunApiCall<TOutput>(IQueryable item, Action<TOutput> succes, Action<string> fail)
         {
-            var json = await _client.DownloadStringTaskAsync(new Uri(RootUrl + item.ToUrlParams() + _apiKey));
-            var status = GetStatus(json);
-            if (status == 200)
-                succes(JsonConvert.DeserializeObject<TOutput>(json));
-            else
-                fail(GetErrorWithStatus(status));
+            try
+            {
+                var json = await _client.DownloadStringTaskAsync(new Uri(RootUrl + item.ToUrlParams() + _apiKey));
+                var status = GetStatus(json);
+                if (status == 200)
+
+                    succes(JsonConvert.DeserializeObject<TOutput>(json));
+                else
+                    fail(GetErrorWithStatus(status));
+            }
+            catch (Exception e)
+            {
+                fail(e.Message);
+            }
         }
+
         private static int GetStatus(string json)
         {
             return JsonConvert.DeserializeObject<BaseJson.RootObject>(json).Message.Header.StatusCode;
         }
+
         private static string GetErrorWithStatus(int status)
         {
             switch (status)
@@ -171,7 +181,7 @@ namespace MusixMatch_API
         /// <param name="post">The LyricsPost object containing the song id and the lyrics you want to upload.</param>
         /// <param name="succes">When the call to the API succeeds, returns the lyrics uploaded (or nothing, this is not shown on the musixmatch doc page...)</param>
         /// <param name="fail">Action to run when the call failed, returns an error.</param>
-        public void TrackLyricsPost(TrackLyricsPost post,  Action<string> succes, Action<string> fail)
+        public void TrackLyricsPost(TrackLyricsPost post, Action<string> succes, Action<string> fail)
         {
             RunApiCall<Posted.RootObject>(post, item => succes(item.Message.Body), fail);
         }
@@ -324,7 +334,6 @@ namespace MusixMatch_API
 
         #endregion
 
-
         #region Catalogue
 
         /// <summary>
@@ -348,5 +357,4 @@ namespace MusixMatch_API
             _client.Dispose();
         }
     }
-
 }
