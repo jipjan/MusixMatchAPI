@@ -2,11 +2,12 @@
 {
     public class TrackLyricsGet : BaseApiParams, IQueryable
     {
-        //track_id
-        public int? MusixMatchId;
         //track_mbid
         public int? MusicBrainzId;
-        
+
+        //track_id
+        public int? MusixMatchId;
+
         public string ToUrlParams()
         {
             Filter = new FilterCollection();

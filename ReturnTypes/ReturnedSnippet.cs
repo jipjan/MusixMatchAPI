@@ -55,6 +55,5 @@ namespace MusixMatch_API.ReturnTypes
             [JsonProperty("execute_time")]
             public double ExecuteTime { get; set; }
         }
-
     }
 }

@@ -22,6 +22,5 @@ namespace MusixMatch_API.APIMethods
             [JsonProperty("execute_time")]
             public double ExecuteTime { get; set; }
         }
-
     }
 }

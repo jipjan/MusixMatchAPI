@@ -2,12 +2,12 @@
 {
     public class ArtistAlbumsGet : BaseApiParams, IQueryable
     {
-        public int? MusixMatchArtistId;
-        public int? MusicBrainzArtistId;
         public bool? GroupByAlbumName;
-        public Sort? SortReleaseDate;
+        public int? MusicBrainzArtistId;
+        public int? MusixMatchArtistId;
         public int? Page;
         public int? PageSize;
+        public Sort? SortReleaseDate;
 
         public string ToUrlParams()
         {

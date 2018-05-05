@@ -62,5 +62,4 @@ namespace MusixMatch_API.ReturnTypes
             public Message Message { get; set; }
         }
     }
-    
 }

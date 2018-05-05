@@ -2,15 +2,17 @@
 {
     public class TrackSubtitleGet : BaseApiParams, IQueryable
     {
-        //track_id
-        public int? MusixMatchId;
         //track_mbid
         public int? MusicBrainzId;
+
+        //track_id
+        public int? MusixMatchId;
 
         public SubtitleFormatOptions SubtitleFormat = SubtitleFormatOptions.Lrc;
 
         public int? SubtitleLength;
         public int? SubtitleLengthMaxDeviation;
+
         public string ToUrlParams()
         {
             Filter = new FilterCollection();

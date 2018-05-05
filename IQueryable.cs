@@ -2,7 +2,7 @@
 {
     public interface IQueryable
     {
-        string ToUrlParams();
         string Url { get; }
+        string ToUrlParams();
     }
 }

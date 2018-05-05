@@ -2,10 +2,11 @@
 {
     public class TrackGet : BaseApiParams, IQueryable
     {
-        //track_id
-        public int MusixMatchId;
         //track_mbid
         public int MusicBrainzId;
+
+        //track_id
+        public int MusixMatchId;
 
         //format
         public string Url { get; } = "track.get?";

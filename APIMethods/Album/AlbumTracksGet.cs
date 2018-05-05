@@ -2,9 +2,9 @@
 {
     public class AlbumTracksGet : BaseApiParams, IQueryable
     {
-        public int? MusixMatchAlbumId;
-        public int? MusicBrainzAlbumId;
         public bool? HasLyrics;
+        public int? MusicBrainzAlbumId;
+        public int? MusixMatchAlbumId;
         public int? Page;
         public int? PageSize;
 

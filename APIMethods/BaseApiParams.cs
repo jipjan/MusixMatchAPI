@@ -5,10 +5,20 @@ namespace MusixMatch_API.APIMethods
 {
     public class BaseApiParams
     {
-        internal FilterCollection Filter;
+        public enum Sort
+        {
+            Ascending,
+            Descending
+        }
 
-        public enum SubtitleFormatOptions { Lrc, Dfxp, Stledu }
-        public enum Sort { Ascending, Descending }
+        public enum SubtitleFormatOptions
+        {
+            Lrc,
+            Dfxp,
+            Stledu
+        }
+
+        internal FilterCollection Filter;
 
         public static string Format { get; } = "json";
 

@@ -1,6 +1,6 @@
 ﻿namespace MusixMatch_API.APIMethods.Catalogue
 {
-    class CatalogueDumpGet : BaseApiParams, IQueryable
+    internal class CatalogueDumpGet : BaseApiParams, IQueryable
     {
         public string ToUrlParams()
         {

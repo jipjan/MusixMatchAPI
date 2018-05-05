@@ -2,8 +2,9 @@
 {
     public class ArtistGet : BaseApiParams, IQueryable
     {
-        public int? MusixMatchArtistId;
         public int? MusicBrainzArtistId;
+        public int? MusixMatchArtistId;
+
         public string ToUrlParams()
         {
             Filter = new FilterCollection();
