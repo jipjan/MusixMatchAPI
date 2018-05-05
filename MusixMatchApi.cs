@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using MusixMatch_API.APIMethods;
 using MusixMatch_API.APIMethods.Album;
 using MusixMatch_API.APIMethods.Artist;
@@ -26,7 +27,7 @@ namespace MusixMatch_API
     {
         private const string RootUrl = @"http://api.musixmatch.com/ws/1.1/";
         private readonly string _apiKey;
-        private readonly WebClient _client = new WebClient();
+        private readonly HttpClient _client = new HttpClient();
 
         /// <summary>
         /// Initialize an API connector with your API key.
@@ -41,7 +42,7 @@ namespace MusixMatch_API
         {
             try
             {
-                var json = await _client.DownloadStringTaskAsync(new Uri(RootUrl + item.ToUrlParams() + _apiKey));
+                var json = await _client.GetStringAsync(new Uri(RootUrl + item.ToUrlParams() + _apiKey));
                 var status = GetStatus(json);
                 if (status == 200)
 

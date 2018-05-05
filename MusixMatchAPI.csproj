@@ -1,101 +1,35 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6120EA0-C07E-49C6-99CD-2FF1F2F1741F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MusixMatch_API</RootNamespace>
-    <AssemblyName>MusixMatch API</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <Authors>jipjan, andy840119</Authors>
+    <Company></Company>
+    <Product>MusixMatchAPI</Product>
+    <Description>SDK for the MusixMatch Messaging API for C#</Description>
+    <Version>1.0.0</Version>
+    <Copyright>© 2018 MusixMatchAPI</Copyright>
+    <PackageLicenseUrl>https://github.com/jipjan/MusixMatchAPI/blob/master/README.md</PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>MusixMatch;MusixMatchAPI;Lyrics;Lyrics API;netStandard</PackageTags>
+    <PackageProjectUrl>https://github.com/jipjan/MusixMatchAPI</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <RepositoryUrl>https://github.com/jipjan/MusixMatchAPI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.4\MusixMatchAPI.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="APIMethods\Album\AlbumGet.cs" />
-    <Compile Include="APIMethods\Album\AlbumTracksGet.cs" />
-    <Compile Include="APIMethods\Artist\ArtistRelatedGet.cs" />
-    <Compile Include="APIMethods\Artist\ArtistAlbumsGet.cs" />
-    <Compile Include="APIMethods\Artist\ArtistSearch.cs" />
-    <Compile Include="APIMethods\Artist\ArtistGet.cs" />
-    <Compile Include="APIMethods\BaseApiParams.cs" />
-    <Compile Include="APIMethods\Catalogue\CatalogueDumpGet.cs" />
-    <Compile Include="APIMethods\Chart\ArtistsGet.cs" />
-    <Compile Include="APIMethods\Chart\TracksGet.cs" />
-    <Compile Include="APIMethods\BaseJson.cs" />
-    <Compile Include="APIMethods\Matcher\MatcherSubtitleGet.cs" />
-    <Compile Include="APIMethods\Matcher\MatcherTrackGet.cs" />
-    <Compile Include="APIMethods\Matcher\MatcherLyricsGet.cs" />
-    <Compile Include="APIMethods\Tracking\TrackingUrlGet.cs" />
-    <Compile Include="APIMethods\Track\TrackGet.cs" />
-    <Compile Include="APIMethods\Track\TrackLyricsFeedbackPost.cs" />
-    <Compile Include="APIMethods\Track\TrackLyricsGet.cs" />
-    <Compile Include="APIMethods\Track\TrackLyricsPost.cs" />
-    <Compile Include="APIMethods\Track\TrackSnippetGet.cs" />
-    <Compile Include="APIMethods\Track\TrackSubtitleGet.cs" />
-    <Compile Include="MusixMatchApi.cs" />
-    <Compile Include="FilterCollection.cs" />
-    <Compile Include="IQueryable.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="APIMethods\Track\TrackSearch.cs" />
-    <Compile Include="ReturnTypes\Album.cs" />
-    <Compile Include="ReturnTypes\ReturnedAlbum.cs" />
-    <Compile Include="ReturnTypes\ReturnedAlbums.cs" />
-    <Compile Include="ReturnTypes\Genres.cs" />
-    <Compile Include="ReturnTypes\ReturnedArtist.cs" />
-    <Compile Include="ReturnTypes\ReturnedArtists.cs" />
-    <Compile Include="ReturnTypes\ReturnedCatalogue.cs" />
-    <Compile Include="ReturnTypes\ReturnedLyrics.cs" />
-    <Compile Include="ReturnTypes\ReturnedSubtitle.cs" />
-    <Compile Include="ReturnTypes\ReturnedTrack.cs" />
-    <Compile Include="ReturnTypes\ReturnedTrackingUrl.cs" />
-    <Compile Include="ReturnTypes\Track.cs" />
-    <Compile Include="ReturnTypes\Posted.cs" />
-    <Compile Include="ReturnTypes\ReturnedTracks.cs" />
-    <Compile Include="ReturnTypes\ReturnedSnippet.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
