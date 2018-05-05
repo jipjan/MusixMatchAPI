@@ -2,11 +2,11 @@
 {
     public class MatcherTrackGet : BaseApiParams, IQueryable
     {
-        public string SongTitle;
-        public string SongArtist;
-        public string SongAlbum;
         public bool? HasLyrics;
         public bool? HasSubtitle;
+        public string SongAlbum;
+        public string SongArtist;
+        public string SongTitle;
 
         public string ToUrlParams()
         {

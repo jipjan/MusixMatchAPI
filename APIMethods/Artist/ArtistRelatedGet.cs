@@ -2,8 +2,8 @@
 {
     public class ArtistRelatedGet : BaseApiParams, IQueryable
     {
-        public int? MusixMatchArtistId;
         public int? MusicBrainzArtistId;
+        public int? MusixMatchArtistId;
         public int? Page;
         public int? PageSize;
 

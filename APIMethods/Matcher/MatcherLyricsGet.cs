@@ -2,8 +2,8 @@
 {
     public class MatcherLyricsGet : BaseApiParams, IQueryable
     {
-        public string SongTitle;
         public string SongArtist;
+        public string SongTitle;
 
 
         public string ToUrlParams()

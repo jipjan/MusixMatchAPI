@@ -3,15 +3,15 @@
     public class ArtistSearch : BaseApiParams, IQueryable
     {
         public string ArtistName;
-        public int? MusixMatchArtistId;
         public int? MusicBrainzArtistId;
+        public int? MusixMatchArtistId;
         public int? Page;
         public int? PageSize;
 
         public string ToUrlParams()
         {
             Filter = new FilterCollection();
-            
+
             AddFilter("q_artist", ArtistName);
             AddFilter("artist_id", MusixMatchArtistId);
             AddFilter("artist_mbid", MusicBrainzArtistId);

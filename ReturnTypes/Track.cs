@@ -92,7 +92,5 @@ namespace MusixMatch_API.ReturnTypes
 
         [JsonProperty("secondary_genres")]
         public SecondaryGenres SecondaryGenres { get; set; }
-
-
     }
 }

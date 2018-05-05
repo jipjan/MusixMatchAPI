@@ -2,26 +2,33 @@
 {
     public class TrackSearch : BaseApiParams, IQueryable
     {
-        public string Url { get; } = "track.search?";
+        public int? FilterOnArtistId;
+        public int? FilterOnArtistMusicBrainzId;
+        public int? FilterOnMusicCategoryId;
+        public int? FilterOnMusicGenreId;
+        public bool? HasLyrics;
+        public string Language;
 
-        public string Query;
-        public string QueryLyrics;
-        public string QueryTrack;
-        public string QueryArtist;
         public sbyte? Page;
+
         // from 1 to 100
         public sbyte? PageSize;
-        public bool? HasLyrics;
-        public int? FilterOnArtistId;
-        public int? FilterOnMusicGenreId;
-        public int? FilterOnMusicCategoryId;
-        public int? FilterOnArtistMusicBrainzId;
-        public string Language;
-        // 0 = asc, 1 = desc.
-        public Sort? SortOnTrackRating;
-        public Sort? SortOnArtistRating;
+
+        public string Query;
+        public string QueryArtist;
+        public string QueryLyrics;
+
+        public string QueryTrack;
+
         // Search only a part of the given query string. Range is 0.1 - 1.0, with 1 being 100%
         public float? QuorumFactor = 1f;
+
+        public Sort? SortOnArtistRating;
+
+        // 0 = asc, 1 = desc.
+        public Sort? SortOnTrackRating;
+
+        public string Url { get; } = "track.search?";
 
         public string ToUrlParams()
         {

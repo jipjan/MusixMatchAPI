@@ -3,6 +3,7 @@
     public class AlbumGet : BaseApiParams, IQueryable
     {
         public int? MusixMatchAlbumId;
+
         public string ToUrlParams()
         {
             Filter = new FilterCollection();

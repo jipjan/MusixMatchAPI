@@ -8,6 +8,7 @@
         {
             Domain = domain;
         }
+
         public string ToUrlParams()
         {
             Filter = new FilterCollection();

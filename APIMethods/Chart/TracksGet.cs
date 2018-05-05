@@ -3,9 +3,9 @@
     public class TracksGet : BaseApiParams, IQueryable
     {
         public string CountryCode;
+        public bool? HasLyrics;
         public int? Page;
         public int? PageSize;
-        public bool? HasLyrics;
 
         public string ToUrlParams()
         {
